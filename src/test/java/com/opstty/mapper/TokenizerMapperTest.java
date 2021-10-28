@@ -27,9 +27,9 @@ public class TokenizerMapperTest {
 
     @Test
     public void testMap() throws IOException, InterruptedException {
-        String value = "foo bar tux";
+        String value =  "(48.8399672948, 2.43375148978);12;Fagus;sylvatica;Fagaceae;1865;20.0;530.0;avenue Daumesnil, Esplanade du Château de Vincennes;Hêtre pleureur;Pendula;20;Bois de Vincennes (square Carnot)";
         this.tokenizerMapper.map(null, new Text(value), this.context);
-        verify(this.context, times(3))
-                .write(new Text("tux"), new IntWritable(1));
+        verify(this.context, times(1))
+                .write(new Text("12"), new Text(" "));
     }
 }
